@@ -3,56 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roblox - Gakuran（学乱）| 新东方厨师学院</title>
+<title>Roblox - Gakuran（学乱）| 塔伊迪大学附属高校·新东方厨师学院</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
-
-/* ===== 合照框与图片样式 ===== */
-.photo-hero-frame{
-  width:100%;
-  height:clamp(300px, 50vw, 520px); /* 自动适配手机与电脑端高度 */
-  background:#0a060a;
-  border:1px solid rgba(200,168,110,.3);
-  border-radius:10px;
-  position:relative;
-  overflow:hidden;
-}
-
-/* 保证图片完美铺满且不变形 */
-.photo-hero-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  display:block;
-  transition:transform .5s ease, filter .5s ease;
-}
-
-.photo-hero-card:hover .photo-hero-img{
-  transform:scale(1.03); /* 鼠标悬停微放大效果 */
-  filter:brightness(105%);
-}
-
-/* 浮在图片上的印章与标签 */
-.photo-stamp{
-  position:absolute;top:20px;right:25px;
-  padding:6px 16px;border:2px solid var(--blood2);
-  color:var(--blood2);font-weight:900;font-family:'Ma Shan Zheng',serif;
-  font-size:1.3rem;letter-spacing:3px;transform:rotate(8deg);
-  background:rgba(10,10,13,.85);border-radius:4px;
-  box-shadow:0 0 15px rgba(196,30,30,.5);
-  pointer-events:none;
-  z-index:2;
-}
-
-.photo-badge-left{
-  position:absolute;bottom:20px;left:25px;
-  font-size:.8rem;letter-spacing:2px;color:var(--gold2);
-  background:rgba(10,10,13,.85);padding:6px 14px;border:1px solid var(--gold);
-  border-radius:20px;
-  pointer-events:none;
-  z-index:2;
-}
 
 /* ===== 基础变量与全局重置 ===== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -141,10 +94,36 @@ body::before{
 @keyframes sway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
 @keyframes lanternFade{0%{opacity:0;transform:scale(0.5)}100%{opacity:1;transform:scale(1)}}
 
+/* ===== 总组织 (塔伊迪大学附属高校) 顶部横幅 ===== */
+.parent-org-banner{
+  display:inline-flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(19, 13, 20, 0.85);
+  border:1px solid var(--gold);
+  padding:10px 24px;
+  border-radius:50px;
+  margin-bottom:24px;
+  box-shadow:0 0 20px rgba(212,175,55,.2);
+  backdrop-filter:blur(5px);
+  animation:heroZoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.parent-org-avatar{
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid var(--gold2);
+  box-shadow:0 0 10px rgba(212,175,55,.5);
+}
+.parent-org-text{text-align:left}
+.parent-org-text .org-label{font-size:.7rem;letter-spacing:2px;color:#a8946f;display:block}
+.parent-org-text .org-name{font-size:1.05rem;font-weight:900;color:var(--gold2);letter-spacing:2px;font-family:'Noto Serif SC',serif}
+
 /* ===== Hero 主视觉区 ===== */
 .hero{
   position:relative;overflow:hidden;text-align:center;
-  padding:150px 16px 80px;
+  padding:140px 16px 80px;
   background:
     radial-gradient(ellipse at 50% 120%,rgba(138,74,243,.2) 0%,transparent 55%),
     radial-gradient(ellipse at 20% 0%,rgba(196,30,30,.15) 0%,transparent 45%),
@@ -172,7 +151,7 @@ body::before{
   background:rgba(139,0,0,.25);border-color:var(--blood2);color:#ff9e9e;
 }
 
-/* LOGO 匾额容器（剔除白背景） */
+/* LOGO 匾额容器 */
 .logo-plaque{
   display:inline-block;
   padding:18px 36px;
@@ -227,7 +206,7 @@ body::before{
 }
 .hero .tagline b{color:var(--blood2)}
 
-/* 炫酷动画 Keyframes */
+/* 动画 Keyframes */
 @keyframes heroZoomIn{0%{opacity:0;transform:scale(0.6)}100%{opacity:1;transform:scale(1)}}
 @keyframes plaqueIn{0%{opacity:0;transform:scale(0.5) rotate(-4deg);filter:blur(8px)}100%{opacity:1;transform:scale(1) rotate(0);filter:blur(0)}}
 @keyframes heroTitleIn{0%{opacity:0;transform:translateY(35px);filter:blur(10px)}100%{opacity:1;transform:translateY(0);filter:blur(0)}}
@@ -242,7 +221,7 @@ body::before{
 .flame:nth-child(5){left:90%;height:70px}
 @keyframes fire{0%{transform:scaleY(.75) translateY(6px);opacity:.5}100%{transform:scaleY(1.15) translateY(-4px);opacity:.95}}
 
-/* ===== 滚动入场通用动画 Class ===== */
+/* ===== 滚动入场通用 Class ===== */
 .animate-on-scroll{
   opacity: 0;
   transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -290,10 +269,34 @@ section{position:relative;padding:80px 16px}
   font-size:clamp(1.8rem,5.5vw,3.2rem);color:#f5e6c4;letter-spacing:6px;line-height:1.6;
 }
 .intro .mantra b{color:var(--blood2);text-shadow:0 0 30px rgba(196,30,30,.7)}
-.intro .desc{max-width:680px;margin:22px auto 0;color:#a8946f;font-size:1rem;letter-spacing:2px;line-height:2}
+.intro .desc{max-width:720px;margin:22px auto 0;color:#a8946f;font-size:1rem;letter-spacing:2px;line-height:2}
+
+/* 分组织关系说明卡片 */
+.org-relation-box{
+  max-width:720px;
+  margin:28px auto 0;
+  padding:20px;
+  background:rgba(20, 12, 18, 0.8);
+  border:1px solid rgba(212,175,55,.4);
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  text-align:left;
+}
+.org-relation-box img{
+  width:70px;
+  height:70px;
+  border-radius:10px;
+  border:2px solid var(--gold2);
+  object-fit:cover;
+  flex-shrink:0;
+}
+.org-relation-info h4{color:var(--gold2);font-size:1.1rem;letter-spacing:2px;margin-bottom:4px}
+.org-relation-info p{color:#cbb79a;font-size:.88rem;line-height:1.6;letter-spacing:1px}
 
 .legacy-line{
-  max-width:680px;margin:30px auto 0;padding:20px 26px;
+  max-width:720px;margin:30px auto 0;padding:20px 26px;
   border-top:1px dashed rgba(200,168,110,.3);border-bottom:1px dashed rgba(200,168,110,.3);
   color:#e8d8b8;font-size:clamp(1rem,3.2vw,1.25rem);letter-spacing:3px;font-weight:700;line-height:2;
 }
@@ -332,44 +335,28 @@ section{position:relative;padding:80px 16px}
   border-radius:10px;position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
 }
-
-/* 模拟高质量学乱全员大合照视觉 */
-.group-photo-art{
-  width:100%;height:100%;
-  background-image:
-    radial-gradient(circle at 50% 30%, rgba(212,175,55,0.2) 0%, transparent 60%),
-    radial-gradient(circle at 20% 80%, rgba(196,30,30,0.3) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(10,10,13,0.2) 0%, rgba(10,10,13,0.85) 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:20px;
-  position:relative;
+.photo-hero-img{
+  width:100%;height:100%;object-fit:cover;object-position:center;display:block;
+  transition:transform .5s ease, filter .5s ease;
+}
+.photo-hero-card:hover .photo-hero-img{
+  transform:scale(1.03);filter:brightness(105%);
 }
 
-/* 模拟照片内的 UI 贴纸 */
 .photo-stamp{
   position:absolute;top:20px;right:25px;
   padding:6px 16px;border:2px solid var(--blood2);
   color:var(--blood2);font-weight:900;font-family:'Ma Shan Zheng',serif;
   font-size:1.3rem;letter-spacing:3px;transform:rotate(8deg);
-  background:rgba(10,10,13,.7);border-radius:4px;
-  box-shadow:0 0 15px rgba(196,30,30,.4);
+  background:rgba(10,10,13,.85);border-radius:4px;
+  box-shadow:0 0 15px rgba(196,30,30,.5);
+  pointer-events:none;z-index:2;
 }
 .photo-badge-left{
   position:absolute;bottom:20px;left:25px;
-  font-size:.75rem;letter-spacing:2px;color:var(--gold2);
-  background:rgba(0,0,0,.7);padding:4px 12px;border:1px solid var(--gold);
-  border-radius:20px;
-}
-
-.photo-main-title{
-  font-family:'Ma Shan Zheng','KaiTi',serif;
-  font-size:clamp(2.5rem,7vw,4.5rem);color:#f5e6c4;
-  letter-spacing:8px;line-height:1.2;
-  text-shadow:0 0 25px rgba(212,175,55,.6), 0 4px 10px #000;
-}
-.photo-main-sub{
-  font-size:clamp(.9rem,2.5vw,1.2rem);color:#e8c9c0;
-  letter-spacing:5px;margin-top:12px;font-weight:700;
+  font-size:.8rem;letter-spacing:2px;color:var(--gold2);
+  background:rgba(10,10,13,.85);padding:6px 14px;border:1px solid var(--gold);
+  border-radius:20px;pointer-events:none;z-index:2;
 }
 
 .photo-hero-meta{
@@ -384,7 +371,7 @@ section{position:relative;padding:80px 16px}
   padding:6px 16px;border-radius:6px;border:1px solid var(--blood2);
 }
 
-/* ===== GAKURAN 游戏特色版块 (新增) ===== */
+/* ===== Gakuran 游戏特色版块 ===== */
 .game-features{background:linear-gradient(180deg,#0d0810,#140d18)}
 .gf-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -469,36 +456,145 @@ section{position:relative;padding:80px 16px}
   border:1px solid #ff8c5a;box-shadow:0 0 12px rgba(196,30,30,.6);
 }
 
-/* ===== 加入我们 ===== */
+/* ===== 重构：加入我们板块样式 ===== */
 .join{background:linear-gradient(180deg,#160e14,#0a0a0d);text-align:center}
 .join-title{font-family:'Ma Shan Zheng',serif;font-size:clamp(2.4rem,8vw,4.5rem);color:#f5e6c4;letter-spacing:10px}
+
+/* 强加入群要求提示框 */
+.must-join-box{
+  max-width:720px;
+  margin:24px auto;
+  padding:20px 24px;
+  background:rgba(196, 30, 30, 0.12);
+  border:2px dashed var(--blood2);
+  border-radius:12px;
+  color:#ffdcd5;
+  box-shadow:0 0 30px rgba(196,30,30,.25);
+}
+.must-join-box h3{
+  font-size:1.2rem;
+  color:#ff6b6b;
+  letter-spacing:3px;
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+}
+.must-join-box p{
+  font-size:1rem;
+  letter-spacing:1px;
+  line-height:1.7;
+}
+.must-join-box b{
+  color:var(--gold2);
+  font-weight:900;
+}
+
 .join-secret{
-  margin-top:24px;font-size:clamp(1rem,3.2vw,1.25rem);color:#e8d8b8;letter-spacing:3px;
+  margin-top:12px;font-size:clamp(1rem,3.2vw,1.25rem);color:#e8d8b8;letter-spacing:3px;
   border-top:1px dashed rgba(200,168,110,.3);border-bottom:1px dashed rgba(200,168,110,.3);
   display:inline-block;padding:12px 26px;line-height:2;
 }
 .join-secret b{color:var(--blood2)}
 
-.qq-box{
-  margin:36px auto 0;max-width:520px;padding:32px 20px;border:2px solid var(--blood);
-  border-radius:12px;background:linear-gradient(160deg,#1c0d14,#12070a);
-  box-shadow:0 0 50px rgba(139,0,0,.4);position:relative;
+/* 双联系卡片 Grid 布局 */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:24px;
+  max-width:960px;
+  margin:36px auto 0;
 }
-.qq-label{font-size:.8rem;letter-spacing:5px;color:#b06a5a}
-.qq-number{
-  font-family:'Noto Sans SC',sans-serif;font-weight:900;color:var(--gold2);
-  font-size:clamp(2rem,7vw,3.6rem);letter-spacing:6px;line-height:1.3;margin-top:8px;
-  text-shadow:0 0 25px rgba(212,175,55,.4);user-select:all;
+
+.qq-card{
+  position:relative;
+  padding:32px 20px 28px;
+  border-radius:14px;
+  background:linear-gradient(160deg,#1c0d14,#12070a);
+  border:2px solid var(--blood);
+  box-shadow:0 0 35px rgba(139,0,0,.35);
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  transition:transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
-.qq-copy{
-  margin-top:18px;display:inline-block;padding:12px 32px;border-radius:6px;cursor:pointer;
-  background:linear-gradient(135deg,var(--blood2),var(--blood));color:#ffe8d8;
-  font-size:1rem;font-weight:900;letter-spacing:4px;border:1px solid #ff8c5a;
+.qq-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold2);
+  box-shadow:0 0 45px rgba(212,175,55,.3);
+}
+
+/* 卡片顶部角标 */
+.card-badge{
+  position:absolute;
+  top:-12px;
+  right:20px;
+  padding:4px 14px;
+  font-size:.75rem;
+  font-weight:900;
+  letter-spacing:2px;
+  border-radius:20px;
+  background:var(--blood2);
+  color:#fff;
+  border:1px solid #ff8c5a;
+  box-shadow:0 0 10px rgba(196,30,30,.6);
+}
+.card-badge.gold-badge{
+  background:linear-gradient(135deg,#5a4010,#2a1d05);
+  color:var(--gold2);
+  border-color:var(--gold2);
+  box-shadow:0 0 10px rgba(212,175,55,.4);
+}
+
+.qq-card .qq-type{font-size:.8rem;letter-spacing:3px;color:#a8946f}
+.qq-card .qq-title{
+  font-family:'Ma Shan Zheng',serif;
+  color:var(--gold2);
+  font-size:clamp(1.3rem,3.8vw,1.8rem);
+  letter-spacing:2px;
+  margin-top:6px;
+  text-shadow:0 0 15px rgba(212,175,55,.3);
+}
+.qq-card .qq-num{
+  font-family:'Noto Sans SC',sans-serif;
+  font-weight:900;
+  color:#fff;
+  font-size:clamp(1.8rem,5vw,2.8rem);
+  letter-spacing:4px;
+  margin-top:8px;
+  user-select:all;
+}
+
+.qq-card .copy-btn{
+  margin-top:20px;
+  padding:12px 24px;
+  border-radius:6px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--blood2),var(--blood));
+  color:#ffe8d8;
+  font-size:.95rem;
+  font-weight:900;
+  letter-spacing:3px;
+  border:1px solid #ff8c5a;
   font-family:'Noto Serif SC',serif;
-  box-shadow:0 4px 20px rgba(196,30,30,.5);
+  box-shadow:0 4px 15px rgba(196,30,30,.4);
   transition:all .2s;
+  width:100%;
 }
-.qq-copy:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(196,30,30,.7)}
+.qq-card .copy-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 25px rgba(196,30,30,.7);
+}
+.qq-card .copy-btn.gold-btn{
+  background:linear-gradient(135deg,#3a2810,#1a1005);
+  color:var(--gold2);
+  border-color:var(--gold2);
+  box-shadow:0 4px 15px rgba(212,175,55,.2);
+}
+.qq-card .copy-btn.gold-btn:hover{
+  box-shadow:0 6px 25px rgba(212,175,55,.5);
+}
 
 .qq-copied{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);opacity:0;
   background:rgba(10,10,13,.95);border:1px solid var(--gold);color:var(--gold2);padding:10px 26px;
@@ -528,10 +624,19 @@ footer .copy b{color:#8a7a5e}
     <div class="lantern l1"><div class="cord"></div><div class="body"><span class="glow">厨</span></div><div class="tassel"></div></div>
     <div class="lantern l2"><div class="cord"></div><div class="body"><span class="glow">神</span></div><div class="tassel"></div></div>
 
+    <!-- 总组织 (塔伊迪大学附属高校) 关联徽章 -->
+    <div class="parent-org-banner">
+      <img src="org-avatar.jpg" alt="塔伊迪大学附属高校 LOGO" class="parent-org-avatar">
+      <div class="parent-org-text">
+        <span class="org-label">MAIN ORGANIZATION / 总组织</span>
+        <span class="org-name">塔伊迪大学附属高校</span>
+      </div>
+    </div>
+
     <!-- Roblox-Gakuran 官方标识与黑帮喧哗标牌 -->
     <div class="game-badges-group">
-      <div class="game-tag-badge">🎮 Roblox - Gakuran（学乱）游戏组织</div>
-      <div class="game-tag-badge kanji-style">🔥 喧哗上等 · 顶楼争霸</div>
+      <div class="game-tag-badge">至 の Roblox - Gakuran（学乱）</div>
+      <div class="game-tag-badge kanji-style">🔥 喧哗上等 · 食堂之神</div>
     </div>
     <br>
     
@@ -557,10 +662,20 @@ footer .copy b{color:#8a7a5e}
       <p>ROBLOX GAKURAN KITCHEN GANG</p>
     </div>
     <div class="mantra animate-on-scroll zoom-in delay-1">「<b>掌勺</b>之间，定人生死；<b>颠锅</b>之际，见真功夫。」</div>
+    
     <p class="desc animate-on-scroll fade-up delay-2">
       锅铲所向，便是疆土。本派弟子三十余人，藏身于 Roblox <b>Gakuran（学乱）</b>学园的阴暗灶台之后——
       白天颠勺炒菜，夜里执刀论武。刀法与刀工同宗，火候即心法。
     </p>
+
+    <!-- 分组织关系卡片 -->
+    <div class="org-relation-box animate-on-scroll zoom-in delay-2">
+      <img src="org-avatar.jpg" alt="塔伊迪大学附属高校">
+      <div class="org-relation-info">
+        <h4>🏫 隶属关系说明</h4>
+        <p>我们属于<b>塔伊迪大学附属高校</b>旗下的官方分组织。作为高校食堂的最高战力部门，我们既传承高校秩序，又独立执行厨房极道规则。</p>
+      </div>
+    </div>
 
     <div class="legacy-line animate-on-scroll zoom-in delay-2">
       学长代代相传，<b>十年灶火不熄</b>；<br>
@@ -568,34 +683,31 @@ footer .copy b{color:#8a7a5e}
     </div>
   </section>
 
-<!-- ============ 学乱主要成员大合影 ============ -->
-<section class="single-photo-section">
-  <div class="section-title animate-on-scroll fade-up">
-    <h2>学乱干部大合影</h2>
-    <div class="line"></div>
-    <p>MAIN CREW GROUP PHOTO · 顶楼决战全员集结</p>
-  </div>
-
-  <div class="photo-hero-card animate-on-scroll zoom-in delay-1">
-    <div class="photo-hero-frame">
-      <!-- ⚠️ 在这里放入你真实的合照图片路径！ -->
-      <img src="group-photo.jpg" alt="学乱主要成员大合影" class="photo-hero-img">
-      
-      <!-- 覆盖在图片上的帅气贴纸（会自动浮在图片上） -->
-      <div class="photo-stamp">唯我独尊</div>
-      <div class="photo-badge-left">📍 Gakuran Rooftop · 本部食堂地盘</div>
+  <!-- ============ 学乱主要成员大合影 ============ -->
+  <section class="single-photo-section">
+    <div class="section-title animate-on-scroll fade-up">
+      <h2>学乱干部大合影</h2>
+      <div class="line"></div>
+      <p>MAIN CREW GROUP PHOTO · 顶楼决战全员集结</p>
     </div>
 
-    <div class="photo-hero-meta">
-      <div class="photo-hero-desc">
-        <b>你不过是挑战者
+    <div class="photo-hero-card animate-on-scroll zoom-in delay-1">
+      <div class="photo-hero-frame">
+        <img src="group-photo.jpg" alt="学乱主要成员大合影" class="photo-hero-img">
+        <div class="photo-stamp">唯我独尊</div>
+        <div class="photo-badge-left">📍 Gakuran Rooftop · 本部食堂地盘</div>
       </div>
-      <div class="photo-date-tag">2026.08.05 · 极道纪念册</div>
-    </div>
-  </div>
-</section>
 
-  <!-- ============ 新增：Gakuran 游戏特色版块 ============ -->
+      <div class="photo-hero-meta">
+        <div class="photo-hero-desc">
+          <b>你不过是挑战者</b>
+        </div>
+        <div class="photo-date-tag">2026.08.05 · 极道纪念册</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Gakuran 游戏特色版块 ============ -->
   <section class="game-features">
     <div class="section-title animate-on-scroll fade-up">
       <h2>学乱战场 · 厨房极道特色</h2>
@@ -673,7 +785,7 @@ footer .copy b{color:#8a7a5e}
             面与刀，皆由他起；学园与厨房，尽归他管。金锅一响，万众听令。
           </p>
         </div>
-        <div class="m-flag">🏫 总组织校长 · 双印执掌</div>
+        <div class="m-flag">🏫 塔伊迪高校分组织校长 · 双印执掌</div>
       </div>
 
       <!-- 梧桐 -->
@@ -695,7 +807,7 @@ footer .copy b{color:#8a7a5e}
     </div>
   </section>
 
-  <!-- ============ 加入我们 ============ -->
+  <!-- ============ 加入我们（已优化） ============ -->
   <section class="join">
     <div class="section-title animate-on-scroll fade-up">
       <h2 class="join-title">加入我们</h2>
@@ -703,15 +815,44 @@ footer .copy b{color:#8a7a5e}
       <p style="color:#a8946f;letter-spacing:3px">诚招 Roblox-Gakuran 江湖好手 · 会颠勺格斗者优先</p>
     </div>
     
-    <div class="join-secret animate-on-scroll zoom-in delay-1">
+    <!-- 必加警示框 -->
+    <div class="must-join-box animate-on-scroll zoom-in delay-1">
+      <h3>⚠️ 入会硬性须知 ⚠️</h3>
+      <p>加入<b>新东方厨师学院</b>，<b>必须先加入总组织官方 🐧 群</b>：<br>
+      <b>"Gakuran·TaIdI AcaDemY" (群号: 1056915709)</b><br>
+      进群后联系组织老大<b>墨鱼</b>进行考核，方可正式分配灶台编号！</p>
+    </div>
+
+    <div class="join-secret animate-on-scroll zoom-in delay-2">
       入会暗号：<b>「火 已 备 好，菜 刀 在 手」</b><br>
       报出暗号，灶台为你而燃。
     </div>
 
-    <div class="qq-box animate-on-scroll fade-up delay-2">
-      <div class="qq-label">🐧 ROBLOX 帮众入伙 QQ 群 / 联系方式</div>
-      <div class="qq-number" id="qqNumber">2855518338</div>
-      <button class="qq-copy" id="copyBtn">复制 QQ · 报暗号入伙</button>
+    <!-- 双卡片容器 -->
+    <div class="contact-grid animate-on-scroll fade-up delay-2">
+
+      <!-- 卡片 1：总组织官方 QQ 群 -->
+      <div class="qq-card">
+        <span class="card-badge">必须加入</span>
+        <div>
+          <div class="qq-type">🐧 MAIN GROUP / 塔伊迪高校总群</div>
+          <div class="qq-title">Gakuran·TaIdI AcaDemY</div>
+          <div class="qq-num">1056915709</div>
+        </div>
+        <button class="copy-btn" data-copy="1056915709" data-msg="已复制总组织群号：1056915709 🔥">复制总组织群号</button>
+      </div>
+
+      <!-- 卡片 2：组织老大 墨鱼 QQ -->
+      <div class="qq-card">
+        <span class="card-badge gold-badge">厨师长 / 组织老大</span>
+        <div>
+          <div class="qq-type">🔪 LEADER CONTACT / 考核与报道</div>
+          <div class="qq-title">墨鱼（Moe）联系方式</div>
+          <div class="qq-num">2855518338</div>
+        </div>
+        <button class="copy-btn gold-btn" data-copy="2855518338" data-msg="已复制老大墨鱼 QQ：2855518338 ⚔️">复制老大 QQ 报暗号</button>
+      </div>
+
     </div>
   </section>
 
@@ -719,15 +860,15 @@ footer .copy b{color:#8a7a5e}
   <footer>
     <div class="motto">刀 光 火 影 · 厨 心 不 改</div>
     <div class="copy">
-      © 新东方厨师学院 · 隶属 <b>Gakuran·TaIdI AcaDemY</b><br>
+      © 新东方厨师学院 · 隶属于 <b>塔伊迪大学附属高校 (Gakuran·TaIdI AcaDemY)</b><br>
       Roblox - Gakuran（学乱） 游戏玩家社团宣传页
     </div>
   </footer>
 
 </div>
 
-<!-- 复制成功提示 -->
-<div class="qq-copied" id="copiedTip">已复制 QQ · 灶台为你而燃 🔥</div>
+<!-- 复制成功通用提示 -->
+<div class="qq-copied" id="copiedTip">复制成功！</div>
 
 <script>
 // 1. IntersectionObserver 动态滚动入场触发器
@@ -752,35 +893,46 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// 2. 一键复制 QQ 功能
+// 2. 一键复制多通用功能
 (function(){
-  var btn = document.getElementById('copyBtn');
   var tip = document.getElementById('copiedTip');
-  var num = document.getElementById('qqNumber').textContent.trim();
   
-  function showToast(){
+  function showToast(msg){
+    tip.textContent = msg || '已复制到剪贴板！';
     tip.classList.add('show');
-    setTimeout(function(){ tip.classList.remove('show'); }, 2000);
+    setTimeout(function(){ tip.classList.remove('show'); }, 2200);
   }
 
-  btn.addEventListener('click', function(){
-    if(navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(num).then(showToast, fallback);
-    } else {
-      fallback();
-    }
-    
-    function fallback(){
-      var ta = document.createElement('textarea');
-      ta.value = num;
-      ta.style.position = 'fixed';
-      ta.style.opacity = '0';
-      document.body.appendChild(ta);
-      ta.select();
-      try{ document.execCommand('copy'); showToast(); } catch(e){}
-      document.body.removeChild(ta);
-    }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var textToCopy = this.getAttribute('data-copy');
+      var successMsg = this.getAttribute('data-msg');
+
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(textToCopy).then(function(){
+          showToast(successMsg);
+        }, function(){
+          fallback(textToCopy, successMsg);
+        });
+      } else {
+        fallback(textToCopy, successMsg);
+      }
+    });
   });
+
+  function fallback(text, msg){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ 
+      document.execCommand('copy'); 
+      showToast(msg); 
+    } catch(e){}
+    document.body.removeChild(ta);
+  }
 })();
 
 // 3. Canvas 动态樱花与火星粒子
